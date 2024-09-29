@@ -1,0 +1,35 @@
+<div class="container w-50 shadow p-4 mt-5">
+    <h6 class="text-center text-decoration-underline">Registration Form</h6>
+   <form [formGroup]="registrationForm" (ngSubmit)="submit()">
+
+    <div class="mb-3">
+        <label for="id1" class="form-label">Name</label>
+        <input type="text" class="form-control" id="id1" formControlName="name">
+    </div>
+    <div class="mb-3">
+        <label for="id2" class="form-label">Mobile</label>
+        <input type="text" class="form-control" id="id2" formControlName="mobile">
+    </div>
+    <div class="mb-3">
+        <label for="id3" class="form-label">Email</label>
+        <input type="text" class="form-control" id="id3" formControlName="email">
+    </div>
+    <h6>Address Details :</h6>
+    <div formGroupName="address">
+        <div class="mb-3">
+            <label for="id2" class="form-label">Address Line 1</label>
+            <input type="text" class="form-control" id="id4" formControlName="addressLine1">
+        </div>
+        <div class="mb-3">
+            <label for="id3" class="form-label">Address Line 2</label>
+            <input type="text" class="form-control" id="id5" formControlName="addressLine2">
+        </div>
+      
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>&nbsp;
+    <button class="btn btn-primary" type="setData" type="button" (click)="setData()">Set Data</button>&nbsp;
+    <button class="btn btn-primary" type="patchData" type="button" (click)="patchData()">Patch Data</button>&nbsp;
+    <button class="btn btn-primary" type="emailupdate" type="button" (click)="updateEmail()">updateEmail</button>
+    
+   </form>
+</div>

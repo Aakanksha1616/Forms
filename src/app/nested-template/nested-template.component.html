@@ -1,0 +1,53 @@
+<div class="container w-50 shadow p-4">
+    <h6 class="text-center text-decoration-underline">Registration Form</h6>
+    <form #registrationForm="ngForm" (ngSubmit)="save(registrationForm)">
+        <div class="mb-3">
+            <label for="id1" class="form-label">Name</label>
+            <input type="text" class="form-control" id="id1" name="fName" [(ngModel)]="signFormObj.name">
+        </div>
+        <div class="mb-3">
+            <label for="id2" class="form-label">Mobile No</label>
+            <input type="text" class="form-control" id="id2" name="mobNo" [(ngModel)]="signFormObj.mobileNo">
+        </div>
+        <div class="mb-3">
+            <label for="id3" class="form-label">Email address</label>
+            <input type="text" class="form-control" id="id3" name="emailAdd" [(ngModel)]="signFormObj.email">
+        </div>
+        <div class="mb-3">
+            <label for="id9" class="form-label">Gender</label>
+            <input class="mx-2" type="radio"  value="male" name="gender" [(ngModel)]="signFormObj.gender">Male
+            <input class="mx-2" type="radio"  value="female" name="gender" [(ngModel)]="signFormObj.gender">Female
+        </div>
+        <div class="mt-1">Address Details</div>
+        <div class="mb-3">
+            <label for="id4" class="form-label">Line 1</label>
+            <input type="text" class="form-control" id="id4" name="line1" [(ngModel)]="signFormObj.address.line1">
+        </div>
+        <div class="mb-3">
+            <label for="id5" class="form-label">Line 2</label>
+            <input type="text" class="form-control" id="id5" name="line2" [(ngModel)]="signFormObj.address.line2">
+        </div>
+        <div class="mb-3">
+            <label for="id7" class="form-label">city</label>
+            <select class="form-select" name="city" id="id7" [(ngModel)]="signFormObj.address.city">
+                <option selected>Select City Name</option>
+                <option *ngFor="let cityName of cityList" [value]="cityName">{{cityName}}</option>
+              </select>
+        </div>
+        <div class="mb-3">
+            <label for="id8" class="form-label">State</label>
+            <select class="form-select" name="State" id="id8" [(ngModel)]="signFormObj.address.state">
+                <option selected>Select State Name</option>
+                <option *ngFor="let stateName of stateList" [value]="stateName">{{stateName}}</option>
+              </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+        <button type="button" class="btn btn-primary mx-1" (click)="setFormData()">Set Data</button>
+
+        <button type="button" class="btn btn-primary mx-1" (click)="resetData()">Reset Data</button>
+
+
+
+    </form>
+</div>

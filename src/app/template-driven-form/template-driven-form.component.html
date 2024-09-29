@@ -1,0 +1,31 @@
+<div class="container w-50 shadow p-4">
+     <h6 class="text-center text-decoration-underline">Registration Form</h6>
+    <form #registrationForm="ngForm" (ngSubmit)="save(registrationForm)">
+        <div class="mb-3">
+            <label for="id1" class="form-label">Name</label>
+            <input type="text" class="form-control" id="id1" name="fName" [(ngModel)]="signFormObj.name">
+        </div>
+        <div class="mb-3">
+            <label for="id2" class="form-label">Mobile No</label>
+            <input type="text" class="form-control" id="id2" name="mobNo" [(ngModel)]="signFormObj.mobileNo">
+        </div>
+        <div class="mb-3">
+            <label for="id3" class="form-label">Email address</label>
+            <input type="text" class="form-control" id="id3" name="emailAdd" [(ngModel)]="signFormObj.email">
+        </div>
+          
+          <button type="submit" class="btn btn-primary">Submit</button>
+
+        <div class="mt-2 border w-75 shadow">
+              <div class="mx-1"><span class="text-primary">Value : </span> &nbsp; {{registrationForm.value | json}}</div>
+              <div class="mx-1"><span class="text-primary">Valid : </span> &nbsp; {{registrationForm.valid}}</div>
+              <div class="mx-1"><span class="text-primary">Invalid : </span> &nbsp; {{registrationForm.invalid}}</div>
+              <div class="mx-1"><span class="text-primary">Dirty : </span> &nbsp; {{registrationForm.dirty}}</div>
+              <div class="mx-1"><span class="text-primary">Pristine : </span> &nbsp; {{registrationForm.pristine}}</div>
+              <div class="mx-1"><span class="text-primary">Touched : </span> &nbsp; {{registrationForm.touched}}</div>
+              <div class="mx-1"><span class="text-primary">Untouched : </span> &nbsp; {{registrationForm.untouched}}</div>
+              <div class="mx-1"><span class="text-primary">Errors : </span> &nbsp; {{registrationForm.errors |json}}</div>
+              
+        </div>  
+    </form>
+</div>

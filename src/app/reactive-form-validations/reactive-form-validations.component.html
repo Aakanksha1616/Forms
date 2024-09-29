@@ -1,0 +1,53 @@
+<div class="container w-50 shadow p-4 mt-5">
+    <h6 class="text-center text-decoration-underline">Registration Form</h6>
+    <form [formGroup]="signUpForm" (ngSubmit)="submit()">
+
+        <div class="mb-3">
+            <label for="id1" class="form-label">Name</label>
+            <input type="text" class="form-control" id="id1" formControlName="name">
+            <div class="invalid-feedback d-block" *ngIf="signUpForm.get('name')?.invalid && (signUpForm.get('name')?.dirty || signUpForm.get('name')?.touched)">
+                <div *ngIf="signUpForm.get('name')?.errors?.['required']">It is required field</div>
+                <div *ngIf="signUpForm.get('name')?.errors?.['minlength'] || signUpForm.get('name')?.errors?.['maxlentgh']">minimum 2 characters and maximum 15 characters are allowed</div>
+                <div *ngIf="signUpForm.get('name')?.errors?.['pattern']">please enter valid name</div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="id2" class="form-label">Mobile</label>
+            <input type="text" class="form-control" id="id2" formControlName="mobile">
+            <div class="invalid-feedback d-block" *ngIf="signUpForm.get('mobile')?.invalid && (signUpForm.get('mobile')?.dirty || signUpForm.get('mobile')?.touched)">
+                <div *ngIf="signUpForm.get('mobile')?.errors?.['required']">It is required field</div>
+                <div *ngIf="signUpForm.get('mobile')?.errors?.['minlength'] || signUpForm.get('mobile')?.errors?.['maxlentgh']">minimum  and maximum 10 digits characters are allowed</div>
+                <div *ngIf="signUpForm.get('mobile')?.errors?.['pattern']">please enter valid number</div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="id3" class="form-label">Email</label>
+            <input type="text" class="form-control" id="id3" formControlName="email">
+            <div class="invalid-feedback d-block" *ngIf="signUpForm.get('email')?.invalid && (signUpForm.get('email')?.dirty || signUpForm.get('email')?.touched)">
+                <div *ngIf="signUpForm.get('email')?.errors?.['required']">It is required field</div>
+                <div *ngIf="signUpForm.get('email')?.errors?.['emailMisMatch']">please enter valid domain , allow domain is "gmail.com"</div>
+            </div>
+        </div>
+       <div class="mb-3">
+       <label for="id4" class="form-label">Password</label>
+       <input type="text" class="form-control" id="id4" formControlName="password">
+       <div class="invalid-feedback d-block" *ngIf="signUpForm.get('password')?.invalid && (signUpForm.get('password')?.dirty || signUpForm.get('password')?.touched)">
+           <div *ngIf="signUpForm.get('password')?.errors?.['required']">It is required field</div>
+           <div *ngIf="signUpForm.get('password')?.errors?.['minlength'] || signUpForm.get('password')?.errors?.['maxlentgh']">minimum 8 characters and maximum 10 characters are allowed</div>
+           <div *ngIf="signUpForm.get('password')?.errors?.['pattern']">please enter valid password</div> 
+        </div>
+        </div>
+        <div class="mb-3">
+            <label for="id5" class="form-label"> Confirm   Password</label>
+            <input type="text" class="form-control" id="id5" formControlName="confirmPassword">
+            <div class="invalid-feedback d-block" *ngIf="signUpForm.get('confirmPassword')?.invalid && (signUpForm.get('confirmPassword')?.dirty || signUpForm.get('confirmPassword')?.touched)">
+                <div *ngIf="signUpForm.get('confirmPassword')?.errors?.['required']">It is required field</div>
+                <div *ngIf="signUpForm.get('confirmPassword')?.errors?.['minlength'] || signUpForm.get('password')?.errors?.['maxlentgh']">minimum 8 characters and maximum 10 characters are allowed</div>
+                <div *ngIf="signUpForm.get('confirmPassword')?.errors?.['pattern']">please provide valid password</div> 
+                <div *ngIf="signUpForm.get('confirmPassword')?.errors?.['passwordMisMatch']">password and confirmPassword is not same</div>
+             </div>
+             </div>
+        <!-- [disabled]="signUpForm.invalid" -->
+         <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

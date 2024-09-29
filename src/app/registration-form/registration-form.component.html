@@ -1,0 +1,36 @@
+<!-- How to implement validation -->
+
+<div class="container w-50 shadow p-4">
+    <h6 class="text-center text-decoration-underline">Registration Form</h6>
+   <form #registrationForm="ngForm" (ngSubmit)="submit(registrationForm)">
+       <div class="mb-3">
+           <label for="id1" class="form-label">Name</label>
+           <input type="text" class="form-control" id="id1" name="fName" [(ngModel)]="userObj.name" required minlength="2" maxlength="15" pattern="[a-zA-Z]{2,15}" #fName="ngModel">
+       </div>
+       <div  class="invalid-feedback d-block" *ngIf="fName.invalid && (fName.dirty || fName.touched)"  >
+        <div *ngIf="fName.errors?.['required']">It is required</div>
+        <div *ngIf="fName.errors?.['minlength'] || fName.errors?.['maxlength']">minimum 2 characters and maximum 15 characters are allowed</div>
+        <div *ngIf="fName.errors?.['pattern']">please enter valid name</div>
+       </div>
+       <div class="mb-3">
+           <label for="id2" class="form-label">Mobile No</label>
+           <input type="text" class="form-control" id="id2" name="mobNo" [(ngModel)]="userObj.mobNo" required minlength="10" maxlength="10" pattern="[0-9]{10,10}" #mobNo="ngModel">
+       </div>
+       <div  class="invalid-feedback d-block" *ngIf="mobNo.invalid && (mobNo.touched || mobNo.dirty)">
+        <div *ngIf="mobNo.errors?.['required']">It is required filed</div>
+        <div *ngIf="mobNo.errors?.['minlength']">minimum 10 digits are required</div>
+        <div *ngIf="mobNo.errors?.['pattern']">plz provide a valid number</div>
+       </div>
+
+       <div class="mb-3">
+        <label for="id3" class="form-label">Email</label>
+        <input type="text" class="form-control" id="id3" name="email" [(ngModel)]="userObj.email">
+    </div>
+    <div class="mb-3">
+        <label for="id4" class="form-label">Password</label>
+        <input type="text" class="form-control" id="id4" name="password" [(ngModel)]="userObj.password" required minlength="8" maxlength="10" pattern="[a-zA-Z0-9]{8,10}">
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="!registrationForm.valid">Submit</button>
+   </form>
+</div>
